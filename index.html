@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration & Result Portal</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+        <span class="navbar-brand mb-0 h1">
+            🎓 Student Registration & Result Portal
+        </span>
+    </div>
+</nav>
+
+<div class="container my-5">
+
+    <!-- Registration Form -->
+    <div class="card shadow mb-4">
+
+        <div class="card-header bg-primary text-white">
+            <h4>Student Registration</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form id="studentForm">
+
+                <div class="row">
+
+                    <!-- Student Name -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Student Name</label>
+                        <input type="text"
+                               id="studentName"
+                               class="form-control"
+                               placeholder="Enter student name"
+                               required>
+                    </div>
+
+                    <!-- Roll Number -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Roll Number</label>
+                        <input type="text"
+                               id="rollNumber"
+                               class="form-control"
+                               placeholder="Enter roll number"
+                               required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email"
+                               id="email"
+                               class="form-control"
+                               placeholder="Enter email"
+                               required>
+                    </div>
+
+                    <!-- Course -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Course</label>
+
+                        <select id="course" class="form-select" required>
+
+                            <option value="">Select Course</option>
+                            <option value="B.Tech CSE">
+                                B.Tech CSE
+                            </option>
+
+                            <option value="B.Tech ECE">
+                                B.Tech ECE
+                            </option>
+
+                            <option value="B.Sc Computer Science">
+                                B.Sc Computer Science
+                            </option>
+
+                            <option value="BCA">
+                                BCA
+                            </option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <h5 class="mb-3">Enter Subject Marks</h5>
+
+                <div class="row">
+
+                    <!-- HTML -->
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">HTML</label>
+
+                        <input type="number"
+                               id="html"
+                               class="form-control"
+                               min="0"
+                               max="100"
+                               placeholder="0 - 100"
+                               required>
+                    </div>
+
+                    <!-- Bootstrap -->
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Bootstrap</label>
+
+                        <input type="number"
+                               id="bootstrap"
+                               class="form-control"
+                               min="0"
+                               max="100"
+                               placeholder="0 - 100"
+                               required>
+                    </div>
+
+                    <!-- JavaScript -->
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">JavaScript</label>
+
+                        <input type="number"
+                               id="javascript"
+                               class="form-control"
+                               min="0"
+                               max="100"
+                               placeholder="0 - 100"
+                               required>
+                    </div>
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-success">
+                    Calculate Result
+                </button>
+
+                <button type="reset"
+                        class="btn btn-secondary">
+                    Clear
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- Result Section -->
+    <div id="resultSection" class="card shadow d-none">
+
+        <div class="card-header bg-success text-white">
+            <h4>Student Result</h4>
+        </div>
+
+        <div class="card-body">
+
+            <!-- Student Details -->
+            <div class="row mb-3">
+
+                <div class="col-md-6">
+                    <strong>Name:</strong>
+                    <span id="displayName"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <strong>Roll Number:</strong>
+                    <span id="displayRoll"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <strong>Email:</strong>
+                    <span id="displayEmail"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <strong>Course:</strong>
+                    <span id="displayCourse"></span>
+                </div>
+
+            </div>
+
+            <!-- Marks Table -->
+            <table class="table table-bordered table-striped">
+
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>HTML</td>
+                        <td id="displayHTML"></td>
+                        <td id="statusHTML"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Bootstrap</td>
+                        <td id="displayBootstrap"></td>
+                        <td id="statusBootstrap"></td>
+                    </tr>
+
+                    <tr>
+                        <td>JavaScript</td>
+                        <td id="displayJS"></td>
+                        <td id="statusJS"></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- Final Result -->
+            <div class="alert alert-info">
+
+                <h5>Total Marks:
+                    <span id="totalMarks"></span> / 300
+                </h5>
+
+                <h5>Percentage:
+                    <span id="percentage"></span>%
+                </h5>
+
+                <h5>Final Result:
+                    <span id="finalResult"></span>
+                </h5>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<!-- Custom JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>

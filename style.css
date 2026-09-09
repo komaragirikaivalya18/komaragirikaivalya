@@ -1,0 +1,28 @@
+body {
+    background-color: #f5f7fa;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.card-header {
+    border-radius: 12px 12px 0 0 !important;
+}
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+}
+
+button {
+    margin-right: 8px;
+}
+
+#resultSection {
+    margin-bottom: 50px;
+}
+
+#finalResult {
+    font-weight: bold;
+}
